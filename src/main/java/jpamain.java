@@ -12,6 +12,7 @@ public class jpamain {
        tx.begin();
         member.setName("학생");
         em.persist(member);
+
         Member member1 = em.find(Member.class,1L);
 
         em.flush();
