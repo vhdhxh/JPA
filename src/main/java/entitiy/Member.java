@@ -1,9 +1,6 @@
 package entitiy;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -12,8 +9,36 @@ public class Member {
     @GeneratedValue
     @Column(name = "MEMBER_ID")
     private int Id;
+    @JoinColumn(name = "Team_Id")
+    @ManyToOne
+    private Team team;
     private String name;
-    private String city;
-    private String street;
-    private int zipcode;
+
+    public int getId() {
+        return Id;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+
+    public void setId(int id) {
+        Id = id;
+    }
+
+
 }

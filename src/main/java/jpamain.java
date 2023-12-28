@@ -1,3 +1,6 @@
+import entitiy.Member;
+import entitiy.Team;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -8,16 +11,30 @@ public class jpamain {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
-        Member member = new Member();
+
        tx.begin();
+        Team team = new Team();
+        team.setName("토트넘");
+        em.persist(team);
+
+        Member member = new Member();
         member.setName("학생");
+        member.setTeam(team);
+
         em.persist(member);
-
-
-        Member member1 = em.find(Member.class,1L);
-
         em.flush();
 
+
+
+
+
+
+
+
+
+
+
+em.flush();
         tx.commit();
         em.close();
 //        em.persist(member);
