@@ -6,13 +6,14 @@ import javax.persistence.*;
 @Entity
 public class Member {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MEMBER_ID")
     private int Id;
     @JoinColumn(name = "Team_Id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Team team;
     private String name;
+
 
     public int getId() {
         return Id;

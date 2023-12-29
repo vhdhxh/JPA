@@ -15,14 +15,20 @@ public class jpamain {
        tx.begin();
         Team team = new Team();
         team.setName("토트넘");
-        em.persist(team);
+//        em.persist(team);
 
         Member member = new Member();
         member.setName("학생");
         member.setTeam(team);
-
+        System.out.println("====");
+        Member member1 = em.find(Member.class,1);
+        System.out.println("====");
         em.persist(member);
         em.flush();
+//        System.out.println(member1.getName());
+
+
+
 
 
 
