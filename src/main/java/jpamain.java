@@ -17,6 +17,7 @@ public class jpamain {
         team.setName("토트넘");
 //        em.persist(team);
 
+
         Member member = new Member();
         member.setName("학생");
         member.setTeam(team);
