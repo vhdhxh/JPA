@@ -12,6 +12,7 @@ public class jpamain {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
 
+
        tx.begin();
         Team team = new Team();
         team.setName("토트넘");
